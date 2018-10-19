@@ -8,7 +8,7 @@ public class Handler {
 	
 	//Loops through and updates every single game object
 	public void tick() {
-		//Loops through every single game object
+		//Loops all game objects
 		for(int i = 0; i < object.size(); i++) {
 			GameObject tempObject = object.get(i);
 			

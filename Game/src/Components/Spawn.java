@@ -17,7 +17,7 @@ public class Spawn {
 		scoreKeep++;
 		
 		//Spawning system
-		if(scoreKeep >= 100) {
+		if(scoreKeep >= 200) {
 			scoreKeep = 0;
 			hud.setLevel(hud.getLevel() + 1);
 			
@@ -30,6 +30,12 @@ public class Spawn {
 			else if(hud.getLevel() == 4) {
 				handler.addObject(new FastEnemy(r.nextInt(Game.HEIGHT - 50), r.nextInt(Game.WIDTH - 50), ID.FastEnemy, handler));
 
+			}
+			else if(hud.getLevel() == 5) {
+				handler.addObject(new SmartEnemy(r.nextInt(Game.HEIGHT - 50), r.nextInt(Game.WIDTH - 50), ID.FastEnemy, handler));
+
+
+		
 			}
 		}
 	}

@@ -23,6 +23,18 @@ public class Handler {
 			tempObject.render(g);
 		}
 	}
+	public void clearEnemies() {
+		for(int i = 0; i <= object.size(); i++) {
+			GameObject tempObject = object.get(i);
+			
+			if(tempObject.getId() != ID.Player) {
+				object.clear(); 
+				addObject(new Player((int)tempObject.getX(), (int)tempObject.getY(), ID.Player, this));
+
+			}
+			
+		}
+	}
 	
 	//Adds objects to the screen
 	public void addObject(GameObject object) {

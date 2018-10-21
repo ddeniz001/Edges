@@ -19,10 +19,13 @@ public class Game extends Canvas implements Runnable {
 	private HUD hud;
 	private Spawn spawner;
 	
-	
+	public enum STATE {
+		Menu,
+		Game
+	};	
+	public STATE GameState = STATE.Menu;
 	
 	public Game() {		
-		
 		handler = new Handler();
 		this.addKeyListener(new KeyInput(handler));
 		
@@ -31,19 +34,16 @@ public class Game extends Canvas implements Runnable {
 		hud = new HUD();
 		spawner = new Spawn(handler, hud);
 		r = new Random();
+		if(GameState == STATE.Menu)
 		
 		handler.addObject(new Player(WIDTH/2-32, HEIGHT/2-32, ID.Player, handler));
 		handler.addObject(new BasicEnemy(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.BasicEnemy, handler));
 	}
-
-	
-	
 	public synchronized void start() {
 		thread = new Thread(this);
 		thread.start();
 		running = true;
 	}
-	
 	public synchronized void stop() {
 		try {
 			thread.join();
@@ -51,10 +51,8 @@ public class Game extends Canvas implements Runnable {
 			
 		}catch(Exception e) {
 			e.printStackTrace();
-		}
-		
 	}
-
+}
 	public void run() {
 		this.requestFocus();
 		long lastTime = System.nanoTime();
@@ -81,13 +79,14 @@ public class Game extends Canvas implements Runnable {
 				frames = 0;
 		}
 		stop();
-	
 	}
 	//Updates the game logic
 	private void tick() {
 		handler.tick();
-		hud.tick();
-		spawner.tick();
+		if(GameState == STATE.Game) {
+			hud.tick();
+			spawner.tick();
+		}
 	}
 	//Renders the updated stuff
 	private void render() {
@@ -103,13 +102,20 @@ public class Game extends Canvas implements Runnable {
 		g.fillRect(0, 0, WIDTH, HEIGHT);
 
 		handler.render(g); //Runs through every game object, updates them
-		hud.render(g);
+		if(GameState == STATE.Game)
+		{
+			hud.render(g);	
+		}
+			else {
+				g.setColor(Color.white);
+				g.drawString("Menu", 100, 100);
+			
+		}
 		
 		g.dispose();
 		bs.show();
 		
 	}
-	
 	public static float clamp(float var, float min, float max) {
 		if(var >= max)
 			return var = max;

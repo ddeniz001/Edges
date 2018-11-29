@@ -14,18 +14,14 @@ public abstract class GameObject {
 		this.x = x;
 		this.y = y;
 		this.id = id;
-		
 	}
-	
 	public abstract void tick();
 	public abstract void render(Graphics g);
 	public abstract Rectangle getBounds(); //We use rectangles to handle collision
-	
-	
-	//Getters & Setters
-		public void setX(int x) {
-		this.x = x; //"this." refers to the instance above
 
+	//	Gitters & Sitters
+		public void setX(int x) {
+		this.x = x;  // "this." refers to the instance above
 	}
 	public void setY(int y){
 		this.y = y;

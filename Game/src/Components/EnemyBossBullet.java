@@ -14,8 +14,8 @@ public class EnemyBossBullet extends GameObject {
 		super(x, y, id);
 		this.handler = handler;
 	
-	velX = (r.nextInt(5 - -5) + -5);
-	velY = 5;
+	velX = (r.nextInt(25 - -25) + -25);
+	velY = 25;
 	}
 	
 	public Rectangle getBounds() {
@@ -29,7 +29,7 @@ public class EnemyBossBullet extends GameObject {
 //	if(y <= 0 || y >= Game.HEIGHT - 32) velY *= -1;
 //	if(x <= 0 || x >= Game.WIDTH - 96) velX *= -1 ;	
 	
-	if(y >= Game.HEIGHT) handler.removeObject(this);
+	if (y >= Game.HEIGHT) handler.removeObject(this);
 		
 	handler.addObject(new Trail((int)x, (int)y, ID.Trail, Color.red, 16, 16, 0.08f, handler));
 	}

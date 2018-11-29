@@ -2,6 +2,10 @@ package Components;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+
+
+
 
 public class HUD {
 	
@@ -23,17 +27,29 @@ public class HUD {
 	public void render(Graphics g) {
 		
 		g.setColor(Color.gray);
-		g.fillRect(15, 15, 200, 32);
+		g.fillRect(210, 15, 200, 32);
 		g.setColor(Color.green);
 		g.setColor(new Color(75, (int)greenValue, 0));
-		g.fillRect(15, 15, (int)(HEALTH * 2), 32);
+		g.fillRect(210, 15, (int)(HEALTH * 2), 32);
 		g.setColor(Color.white);
-		g.drawRect(15, 15, 200, 32);
+		g.drawRect(210, 15, 200, 32);
 		
-		g.drawString("Score: " + score, 10, 64);
-		g.drawString("Level: " + level, 10, 80);
-		
-	}
+		g.drawString("Score: " + score, 210, 64);
+		g.drawString("Level: " + level, 210, 80);
+	
+		/*
+		public void GameOver() {
+			if(HUD.HEALTH == 0) {
+				handler.clearEnemies();
+				g.drawString("Game Over :(");
+				g.drawString("You lost with a score of: ", score, 280, 63);
+				g.drawString("And a level of: ", level, 280, 99);
+				g.drawString("Press r to restart" 300, 99);
+				g.drawString(" ESC to exit" 111, 99);	
+				if(key == KeyEvent.VK_R) {
+					new Game();
+				}} */
+	}                                                                                                                                                       
 	
 	public void score (int score) {
 		this.score = score;
@@ -44,10 +60,8 @@ public class HUD {
 	public int getLevel() {
 		return level;
 	}
-	
 	public void setLevel(int level) {
 		this.level = level;
 	}
-	
 }
 	

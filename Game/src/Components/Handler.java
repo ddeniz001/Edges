@@ -1,5 +1,7 @@
 package Components;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.util.LinkedList;
 
@@ -36,6 +38,18 @@ public class Handler {
 		}
 	}
 	
+	
+	/*public void GameOver(Graphics g) {
+			clearEnemies();
+			Font fnt = new Font("arial", 1, 50);
+			g.setFont(fnt);
+			g.setColor(Color.white);
+			g.drawString("GAME OVER", 240, 70);
+		
+		}*/
+	
+
+	
 	//Adds objects to the screen
 	public void addObject(GameObject object) {
 		this.object.add(object);
@@ -45,5 +59,7 @@ public class Handler {
 	public void removeObject(GameObject object) {
 		this.object.remove(object);
 	}
+
+	
 
 }

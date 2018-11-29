@@ -15,11 +15,9 @@ public class EnemyBoss extends GameObject {
 	public EnemyBoss(int x, int y, ID id, Handler handler) {
 		super(x, y, id);
 		this.handler = handler;
-	
-	velX = 0;
-	velY = 1;
+		velX = 0;
+		velY = 1;
 	}
-	
 	public Rectangle getBounds() {
 		return new Rectangle((int)x, (int)y, 96, 96);
 	}
@@ -42,7 +40,7 @@ public class EnemyBoss extends GameObject {
 				 velX -= 0.05f;
 			 velX = Game.clamp(velX, -10, 10);
 					 
-			 int spawn = r.nextInt(8);
+			 int spawn = r.nextInt(13);
 			 if(spawn == 0) handler.addObject(new EnemyBossBullet((int)x + 48, (int)y + 48, ID.BasicEnemy, handler));	 
 		}
 		

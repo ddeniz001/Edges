@@ -1,6 +1,7 @@
 package Components;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
@@ -33,12 +34,13 @@ public class Player extends GameObject {
 		collision();
 	}
 	
-	//Makes the health bar work
+	//Collision detection (makes the health bar work)
 	private void collision() {
 		for(int i = 0; i < handler.object.size(); i ++) {		
 			GameObject tempObject = handler.object.get(i);
 			if(tempObject.getId() == ID.BasicEnemy || tempObject.getId() == ID.FastEnemy || tempObject.getId() == ID.SmartEnemy) {					
-				//Collision Code
+				
+				//Collision/Enemy damage 
 				if(getBounds().intersects(tempObject.getBounds())) {
 					HUD.HEALTH -= 2;	
 					
@@ -47,6 +49,7 @@ public class Player extends GameObject {
 			}
 			
 		}
+		
 	}
 
 	//Object renditions

@@ -26,6 +26,7 @@ public class KeyInput extends KeyAdapter {
 			GameObject tempObject = handler.object.get(i); //Pretend tempObject is every object in game.
 			
 		
+			
 			if(tempObject.getId() == ID.Player) {
 				//Key events for Player1
 				

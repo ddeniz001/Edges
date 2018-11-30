@@ -14,8 +14,8 @@ public class EnemyBossBullet extends GameObject {
 		super(x, y, id);
 		this.handler = handler;
 	
-	velX = (r.nextInt(25 - -25) + -25);
-	velY = 25;
+	velX = (r.nextInt(15 - -15) + -15);
+	velY = 15;
 	}
 	
 	public Rectangle getBounds() {

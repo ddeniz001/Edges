@@ -15,7 +15,6 @@ public class DeathScreen {
 		this.hud = hud;
 	}
 
-	
 	public void tick() {
 		
 	}

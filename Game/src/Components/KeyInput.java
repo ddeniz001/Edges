@@ -18,44 +18,31 @@ public class KeyInput extends KeyAdapter {
 		
 	}
 	
-	
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
 		
 		for(int i = 0; i < handler.object.size(); i++) {
 			GameObject tempObject = handler.object.get(i); //Pretend tempObject is every object in game.
-			
 		
-			
 			if(tempObject.getId() == ID.Player) {
-				//Key events for Player1
-				
-				//Fixed the Key input lag issue
+				//KeyEvents for Player
 				if(key == KeyEvent.VK_W) {tempObject.setVelY(-6); keyDown[0] = true;} 
 				if(key == KeyEvent.VK_S) {tempObject.setVelY(6); keyDown[1] = true;}
 				if(key == KeyEvent.VK_D) {tempObject.setVelX(6);	keyDown[2] = true;}
 				if(key == KeyEvent.VK_A) {tempObject.setVelX(-6); keyDown[3] = true;}	
 				
-				
-			}	
-		
+		}	
 	}
 	
 	if(key == KeyEvent.VK_ESCAPE) System.exit(key);
 
-
-
 	}
-			
-	
-
 	
 	public void KeyReleased(KeyEvent e) {
 		int key = e.getKeyCode();
 		
 		for(int i = 0; i < handler.object.size(); i++) {
 			GameObject tempObject = handler.object.get(i); //Pretend tempObject is every object in game.
-			
 		
 			if(tempObject.getId() == ID.Player) {
 				//Key events for Player1
@@ -68,11 +55,9 @@ public class KeyInput extends KeyAdapter {
 				if(!keyDown[0] && !keyDown[1]) tempObject.setVelY(0);
 				
 				//Horizontal Movement
-				if(!keyDown[2] && !keyDown[3]) tempObject.setVelX(0);
+				if(!keyDown[2] && !keyDown[3]) tempObject.setVelX(0);		
 				
-				
-			}	
-					
+			}				
 		}
 	}
 }

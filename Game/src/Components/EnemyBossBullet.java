@@ -34,7 +34,6 @@ public class EnemyBossBullet extends GameObject {
 	handler.addObject(new Trail((int)x, (int)y, ID.Trail, Color.red, 16, 16, 0.08f, handler));
 	}
 
-	
 	public void render(Graphics g) {
 		g.setColor(Color.red);
 		g.fillRect((int)x, (int)y, 16, 16);
@@ -42,3 +41,4 @@ public class EnemyBossBullet extends GameObject {
 	
 
 }
+ 

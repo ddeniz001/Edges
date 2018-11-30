@@ -10,10 +10,10 @@ public class Handler {
 	
 	//Loops through and updates every single game object
 	public void tick() {
+	
 		//Loops all game objects
 		for(int i = 0; i < object.size(); i++) {
 			GameObject tempObject = object.get(i);
-			
 			tempObject.tick();
 		}
 	}
@@ -21,10 +21,10 @@ public class Handler {
 	public void render(Graphics g) {
 		for(int i = 0; i < object.size(); i++) {
 			GameObject tempObject = object.get(i);
-			
 			tempObject.render(g);
 		}
 	}
+	
 	public void clearEnemies() {
 		for(int i = 0; i <= object.size(); i++) {
 			GameObject tempObject = object.get(i);
@@ -32,13 +32,10 @@ public class Handler {
 			if(tempObject.getId() != ID.Player) {
 				object.clear(); 
 				addObject(new Player((int)tempObject.getX(), (int)tempObject.getY(), ID.Player, this));
-
-			}
-			
+			}	
 		}
 	}
 		
-	
 	//Adds objects to the screen
 	public void addObject(GameObject object) {
 		this.object.add(object);
@@ -48,7 +45,5 @@ public class Handler {
 	public void removeObject(GameObject object) {
 		this.object.remove(object);
 	}
-
-	
 
 }

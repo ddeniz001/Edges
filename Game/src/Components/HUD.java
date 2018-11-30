@@ -5,12 +5,9 @@ import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 
 
-
-
 public class HUD {
 	
 	public static float HEALTH = 100;
-	
 	private float greenValue = 255;
 	private int score = 0;
 	private int level = 1;
@@ -36,20 +33,8 @@ public class HUD {
 		
 		g.drawString("Score: " + score, 210, 64);
 		g.drawString("Level: " + level, 210, 80);
+	}
 	
-		/*
-		public void GameOver() {
-			if(HUD.HEALTH == 0) {
-				handler.clearEnemies();
-				g.drawString("Game Over :(");
-				g.drawString("You lost with a score of: ", score, 280, 63);
-				g.drawString("And a level of: ", level, 280, 99);
-				g.drawString("Press r to restart" 300, 99);
-				g.drawString(" ESC to exit" 111, 99);	
-				if(key == KeyEvent.VK_R) {
-					new Game();
-				}} */
-	}                                                                                                                                                       
 	
 	public void score (int score) {
 		this.score = score;

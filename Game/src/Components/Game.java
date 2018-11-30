@@ -10,10 +10,10 @@ import java.util.Random;
 
 
 public class Game extends Canvas implements Runnable {
-	private static final long serialVersionUID = -578242900297415597L;
 	
-	public static final int WIDTH = 640, HEIGHT = WIDTH / 12 * 9;
+	private static final long serialVersionUID = -578242900297415597L;
 	private Thread thread;	//This thread executes the entire program when the main method is invoked
+	public static final int WIDTH = 640, HEIGHT = WIDTH / 12 * 9;
 	
 //	Instances 
 	private boolean running = false;
@@ -52,15 +52,17 @@ public class Game extends Canvas implements Runnable {
 		thread.start();
 		running = true;
 	}
+	
 	public synchronized void stop() {
 		try {
 			thread.join();
 			running = false;
 			
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 	}
 }
+	
 	public void run() {
 		this.requestFocus();
 		long lastTime = System.nanoTime();
@@ -87,6 +89,7 @@ public class Game extends Canvas implements Runnable {
 		}
 		stop();
 	}
+	
 //	Updates the game logic
 	private void tick() {
 		handler.tick();
@@ -102,10 +105,8 @@ public class Game extends Canvas implements Runnable {
 			}
 		
 		} else if (gameState == STATE.DeathScreen) {
-			deathScreen.tick();
-			
+			deathScreen.tick();	
 		}
-		
 	}
 	
 //	Renders the updated stuff

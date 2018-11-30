@@ -14,12 +14,12 @@ public class Player extends GameObject {
 	
 	public Player(int x, int y, ID id, Handler handler) {
 		super(x, y, id);
-		this.handler = handler;
-		
-}
-	
+		this.handler = handler;		
+	}
+
 	public Rectangle getBounds() {
 		return new Rectangle((int)x, (int)y, 32, 32);
+		
 	}
 
 	public void tick() {
@@ -36,27 +36,25 @@ public class Player extends GameObject {
 	
 	//Collision detection (makes the health bar work)
 	private void collision() {
+		
 		for(int i = 0; i < handler.object.size(); i ++) {		
 			GameObject tempObject = handler.object.get(i);
+			
 			if(tempObject.getId() == ID.BasicEnemy || tempObject.getId() == ID.FastEnemy || tempObject.getId() == ID.SmartEnemy) {					
 				
 				//Collision/Enemy damage 
 				if(getBounds().intersects(tempObject.getBounds())) {
-					HUD.HEALTH -= 2;	
+					HUD.HEALTH -= 2;
 					
-				}
-				
-			}
-			
-		}
-		
-	}
+			}	
+		}	
+	}	
+}
 
 	//Object renditions
 	public void render(Graphics g) {
-		
 		g.setColor(Color.white);
 		g.fillRect((int)x, (int)y, 32, 32);
-				
+		
 	}
 }

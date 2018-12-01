@@ -26,17 +26,30 @@ public class KeyInput extends KeyAdapter {
 		
 			if(tempObject.getId() == ID.Player) {
 				//KeyEvents for Player
-				if(key == KeyEvent.VK_W) {tempObject.setVelY(-6); keyDown[0] = true;} 
-				if(key == KeyEvent.VK_S) {tempObject.setVelY(6); keyDown[1] = true;}
-				if(key == KeyEvent.VK_D) {tempObject.setVelX(6);	keyDown[2] = true;}
-				if(key == KeyEvent.VK_A) {tempObject.setVelX(-6); keyDown[3] = true;}	
+				if (key == KeyEvent.VK_W) {
+					if (tempObject.velX!= 0) {tempObject.setVelX(0);}
+					{tempObject.setVelY(-6); keyDown[0] = true;}
+				}
+				if (key == KeyEvent.VK_S) {
+					if (tempObject.velX != 0) {tempObject.setVelX(0);}
+				    {tempObject.setVelY(6); keyDown[1] = true;}
+				}
+				if (key == KeyEvent.VK_D) {
+					if (tempObject.velY != 0) {tempObject.setVelY(0);}
+					{tempObject.setVelX(6); keyDown[2] = true;}
+				}
 				
-		}	
-	}
-	
+				if (key == KeyEvent.VK_A) {
+					if (tempObject.velY != 0) {tempObject.setVelY(0);}
+					{tempObject.setVelX(-6); keyDown[3] = true;}
+				}
+			}
+		
+		}
+			
 	if(key == KeyEvent.VK_ESCAPE) System.exit(key);
 
-	}
+}
 	
 	public void KeyReleased(KeyEvent e) {
 		int key = e.getKeyCode();

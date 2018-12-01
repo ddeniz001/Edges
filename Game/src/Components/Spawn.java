@@ -20,7 +20,7 @@ public class Spawn {
 		scoreKeep++;
 		
 		//Spawning system
-		if(scoreKeep >= 100) {
+		if(scoreKeep >= 250) {
 			scoreKeep = 0;
 			hud.setLevel(hud.getLevel() + 1);
 			
